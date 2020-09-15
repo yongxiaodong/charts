@@ -1,0 +1,22 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+#  annotations:
+#    nginx.ingress.kubernetes.io/server-alias: rabbitmq.sgb366.com
+  name: rabbitmq
+spec:
+  rules:
+    - host: rabbitmq.sgb366.com
+      http:
+        paths:
+        - path: /
+          backend:
+            serviceName: rabbitmq-rabbitmq-ha
+            servicePort: 5672
+    - host: rabbitmqweb.sgb366.com
+      http:
+        paths:
+        - path: /
+          backend:
+            serviceName: rabbitmq-rabbitmq-ha
+            servicePort: 15672
