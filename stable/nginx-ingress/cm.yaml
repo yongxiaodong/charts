@@ -1,0 +1,10 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+ name: nginx-ingress-controller
+ namespace: kube-system
+data:
+  map-hash-bucket-size: "128"
+  use-forwarded-headers: "true"
+  access-log-path: "/var/log/access.log"
+  error-log-path: "/var/log/error.log"

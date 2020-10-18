@@ -340,12 +340,25 @@ controller:
   #    - name: copy-portal-skins
   #      mountPath: /srv/var/lib/lemonldap-ng/portal/skins
 
-  extraVolumeMounts: []
+  #extraVolumeMounts: []
+  extraVolumeMounts:
+    - name: logs
+      mountPath: "/nginx-ingress-logs-1"
+    - name: timezone
+      mountPath: "/etc/localtime"
   ## Additional volumeMounts to the controller main container.
   #  - name: copy-portal-skins
   #   mountPath: /var/lib/lemonldap-ng/portal/skins
 
-  extraVolumes: []
+  #extraVolumes: []
+  extraVolumes: 
+    - name: logs
+      persistentVolumeClaim:
+        claimName: nginx-ingress-logs-1
+    - name: timezone
+      hostPath:
+        path: /usr/share/zoneinfo/Asia/Shanghai
+
   ## Additional volumes to the controller pod.
   #  - name: copy-portal-skins
   #    emptyDir: {}

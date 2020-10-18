@@ -55,7 +55,7 @@ defaultRules:
     time: true
 
   ## Runbook url prefix for default rules
-  runbookUrl: https://github.com/kubernetes-monitoring/kubernetes-mixin/tree/master/runbook.md#
+  runbookUrl: https://oapi.dingtalk.com/robot/send?access_token=4d45e3a115179cf2e36d66942cc07a47d115dd13f0d0e90a668e96e9b3e534c0
   ## Reduce app namespace alert scope
   appNamespacesTarget: ".*"
 
