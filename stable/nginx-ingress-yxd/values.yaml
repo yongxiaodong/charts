@@ -342,8 +342,6 @@ controller:
 
   #extraVolumeMounts: []
   extraVolumeMounts:
-    - name: logs
-      mountPath: "/nginx-ingress-logs-1"
     - name: timezone
       mountPath: "/etc/localtime"
   ## Additional volumeMounts to the controller main container.
@@ -352,9 +350,6 @@ controller:
 
   #extraVolumes: []
   extraVolumes: 
-    - name: logs
-      persistentVolumeClaim:
-        claimName: nginx-ingress-logs-1
     - name: timezone
       hostPath:
         path: /usr/share/zoneinfo/Asia/Shanghai

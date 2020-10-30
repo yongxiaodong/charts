@@ -190,7 +190,7 @@ plugins:
 
 persistentVolumeClaim:
   # set to true to use pvc
-  enabled: false
+  enabled: true
   # set to true to use you own pvc
   existingClaim: false
   annotations: {}
