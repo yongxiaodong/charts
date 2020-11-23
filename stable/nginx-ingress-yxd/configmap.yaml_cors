@@ -1,10 +1,14 @@
 kind: ConfigMap
 apiVersion: v1
 metadata:
- name: nginx-ingress-controller
- namespace: nginx-ingress
+  name: nginx-ingress-controller
+  namespace: nginx-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/cors-allow-headers: '*'
+    nginx.ingress.kubernetes.io/cors-allow-methods: '*'
+    nginx.ingress.kubernetes.io/cors-allow-origin: '*'
+    nginx.ingress.kubernetes.io/enable-cors: 'true' 
 data:
-  map-hash-bucket-size: "64"
   proxy-body-size: "1024m"
   client-header-buffer-size: "16k"
   large-client-header-buffers: "4 32k"
@@ -15,7 +19,7 @@ data:
   max-worker-connections: "65535"
   use-forwarded-headers: "true"
   log-format-escape-json: "true"
-  log-format-upstream: '{"time": "$time_iso8601",
+  log-format-upstream: '{"access_time": "$time_iso8601",
         "remote_addr": "$proxy_protocol_addr",
         "x-forward-for": "$proxy_add_x_forwarded_for",
         "method": "$request_method",
